@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global base styles ── */
+@layer base {
+    body {
+        @apply antialiased;
+    }
+    a {
+        @apply transition-colors duration-150;
+    }
+}
+
+/* ── Reusable component classes ── */
+@layer components {
+    /* Card with soft shadow */
+    .card {
+        @apply bg-white rounded-2xl shadow-sm border border-slate-100;
+    }
+
+    /* Primary button */
+    .btn-primary {
+        @apply px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700
+               text-white text-sm font-semibold transition active:scale-95;
+    }
+
+    /* Secondary/outline button */
+    .btn-outline {
+        @apply px-5 py-2.5 rounded-xl border border-slate-200
+               text-sm text-slate-600 hover:bg-slate-50 transition;
+    }
+
+    /* Form input */
+    .form-input {
+        @apply w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition;
+    }
+}
+
+/* ── Custom utilities ── */
+@layer utilities {
+    /* Line clamp fallback */
+    .line-clamp-1 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    /* Fade in for chat bubbles */
+    .animate-fadeIn {
+        animation: fadeIn 0.2s ease both;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal pop animation */
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.92) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #f1f5f9; }
+::-webkit-scrollbar-thumb  { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
